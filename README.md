@@ -11,7 +11,10 @@ The workflow utilizes combination of GoogleDoc, LaTeX and Git/GitHub to ensure r
   3. Once the paper is accepted to the incubator, an ID is given. The ID will be *jhps-incubator-&lt;month of submission&gt;-&lt;title-excerpt&gt;*.
     The repository it will be cloned into GitHub of the VI4IO with ID as a name, e.g., like [this paper](https://github.com/VI4IO/jhps-incubator-06-temporal). At this stage, the following documents are created:
      - A Google Doc containing the manuscript ([main.tex](main.tex)) allowing for commenting by reviewers. The Google Doc will include the JHPS plugin allowing synchronization with Git and republishing of the paper.
-     - The initial PDF version (&lt;ID&gt;.pdf) of the manuscript is created and publicly shared under the URL: https://jhps.vi4io.org/pdf/&lt;PDF&gt;
+     - The initial PDF version (&lt;ID&gt;.pdf) of the manuscript is created and publicly shared under the URL:
+
+      https://jhps.vi4io.org/pdf/&lt;PDF&gt;
+
      - The repository and Google Doc is shared with the corresponding authors.
 
 ## Workflow for Review and Feedback Phase
@@ -37,9 +40,10 @@ Whenever one of the buttons is clicked, the remote repo is pulled and merged wit
 
   - [main.tex](main.tex): this file shall contain all text of the full paper.
   - [bibliography.bib](bibliography.bib): this file contains the BibTex of the paper.
+  - [meta.yaml](meta.yaml): metadata for this publication. 
   - [assets](assets): include all figures and material referenced by LaTeX.
   - [workflow](workflow): a directory containing the workflow for the reproducible workflow.
-  - [main.pdf](main.pdf): after you run LaTeX, it shall contain the created PDF, do not check this file into the repository!
+  - main.pdf: after you run LaTeX, it shall contain the created PDF, do not check this file into the repository!
 
 ## Get started
 

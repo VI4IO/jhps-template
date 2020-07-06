@@ -1,0 +1,20 @@
+---
+# Metadata for this publication
+- authors:
+    - name: Max Musterman
+      email: max@musterman.de
+      url: https://www.max-musterman.de/max
+    - name: Hildegard Müller
+      email: hildgedard@müller.de
+      url: https://www.hildegard-müller.de/hildegard
+- funding:
+    - agency: DFG/NERSC
+      contract: 735735K
+# Do not modify the metadata underneath, it is for internal purposes of JHPS
+- publications:                         # Will be added every time published
+    - current:
+      pdf: https://jhps.vi4io.org/XX    # publication url for current revision
+    - v1-2020-06-06:                    # version + date
+      revision: jafd54                  # Git Hash that is published
+      doi:                              # Zenodo DOI
+      pdf:                              # URL for the PDF
