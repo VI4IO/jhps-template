@@ -9,7 +9,6 @@
 \usepackage[english]{babel}
 \usepackage{geometry}
 \newgeometry{left=3cm,bottom=2.5cm,right=2.5cm,top=2.5cm}
-\usepackage{lastpage}
 
 \usepackage[cmex10]{amsmath}
 \usepackage{titling}
@@ -108,13 +107,13 @@
   \pagestyle{plain}
   \thispagestyle{title}
 
-  \if\JHPSissue x
+  \ifnum\the\JHPSissue>0
   \else
-    This manuscript is in the JHPS incubator and has \textbf{not been assigned an issue} in the journal. Therefore, this header looks different. \\[0.2cm]
-
-    \begin{minipage}{11cm}
-    \tableofcontents
-    \end{minipage}
+    This manuscript is in the JHPS incubator and has \textbf{not been assigned an issue}. \\[0.2cm]
+    %\begin{minipage}{11cm}
+    %\tableofcontents
+    %\end{minipage}
+    \vspace*{-2cm}
   \fi
 
   \vskip 2em%
@@ -128,6 +127,13 @@
       \path [left color = JHPSRed!80, right color = JHPSRed!80]
         (0,0) rectangle (\hsize,0.25ex);
     \end{tikzpicture}
+
+    \vspace*{-0.25cm}
+
+    {\hfill\tiny \hyperref[sec:reviews]{Reviews}} % \framebox[4cm]{
+
+    \vspace*{-0.25cm}
+
     \vskip 1.5em%
     {\large
       \lineskip .5em%
@@ -138,7 +144,7 @@
 }
 
 \renewenvironment{abstract}{%
-  \vspace*{-0.5cm}
+  \vspace*{-0.75cm}
     \small
     \null\vfil
     \begin{center}%
@@ -183,7 +189,7 @@
   \fancyhead[C]{\thetitle}
   \fancyfoot[C]{}
   \fancyfoot[R]{\thepage/\pageref*{LastPage}}
-  \fancyfoot[L]{\includegraphics[height=0.8em]{jhps-logo} This article \if\JHPSissue appeared in the \href{https://jhps.vi4io.org/issue/\the\JHPSissue}{Journal of High-Performance Storage, \the\JHPSissue}\else is in the incubator of the \href{https://jhps.vi4io.org/incubator/}{Journal of High-Performance Storage}\fi }
+  \fancyfoot[L]{\includegraphics[height=0.8em]{jhps-logo} This article \ifnum\the\JHPSissue>0 appeared in the \href{https://jhps.vi4io.org/issue/\the\JHPSissue}{Journal of High-Performance Storage, \the\JHPSissue}\else is in the incubator of the \href{https://jhps.vi4io.org/incubator/}{Journal of High-Performance Storage}\fi }
 }
 
 \fancypagestyle{title}{
@@ -193,7 +199,17 @@
   \fancyhead[C]{}
   \fancyfoot[C]{}
   \fancyfoot[R]{\thepage/\pageref*{LastPage}}
-  \fancyfoot[L]{\includegraphics[height=0.8em]{jhps-logo} This article \if\JHPSissue appeared in the \href{https://jhps.vi4io.org/issue/\the\JHPSissue}{Journal of High-Performance Storage, \the\JHPSissue}\else is in the incubator of the \href{https://jhps.vi4io.org/incubator/}{Journal of High-Performance Storage}\fi }
+  \fancyfoot[L]{\includegraphics[height=0.8em]{jhps-logo} This article \ifnum\the\JHPSissue>0 appeared in the \href{https://jhps.vi4io.org/issue/\the\JHPSissue}{Journal of High-Performance Storage, \the\JHPSissue}\else is in the incubator of the \href{https://jhps.vi4io.org/incubator/}{Journal of High-Performance Storage}\fi }
+}
+
+\fancypagestyle{reviews}{
+  \fancyFootRulers
+  \fancyhead[L]{}
+  \fancyhead[R]{\@date} %\leftmark
+  \fancyhead[C]{\thetitle}
+  \fancyfoot[C]{Reviews}
+  \fancyfoot[R]{\thepage}
+  \fancyfoot[L]{\includegraphics[height=0.8em]{jhps-logo}}
 }
 
 \fancypagestyle{empty}{
@@ -214,5 +230,23 @@
 
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
+
+%% The review bottom
+\newcommand{\reviews}{
+  \label{LastPage}
+  
+  \clearpage
+  \pagestyle{reviews}
+  \section{Reviews}
+  \label{sec:reviews}
+  \textit{This section is optional for reviewers and shows their assessment that lead to the acceptance of the original manuscript. Reviewers may or may not update their review for a major update of the paper, the exact trail is available in GitHub repository of this article. The reviews are part of the article and validate the acceptance. Please check the details on the JHPS webpage.}
+
+  \ifnum\the\JHPSissue>0
+  \else
+  Fine-grained comments and suggestions should be added directly to the manuscript in the Google Doc on the top using “Suggesting” mode (top right, underneath the blue share button).
+  \fi
+}
+
 
 \endinput
