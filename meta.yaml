@@ -18,3 +18,4 @@
       revision: jafd54                  # Git Hash that is published
       doi:                              # Zenodo DOI
       pdf:                              # URL for the PDF
+      issue:                            # JHPS issue
