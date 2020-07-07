@@ -24,14 +24,14 @@
 
 \begin{document}
 
-\JHPSissue{1} % 0 empty until issue is assigned
+\JHPSissue{0} % keep 0 until the issue is assigned
 \JHPSkeywords{Compression, NetCDF} % add 2-5 keywords
 
+% Author macro takes Name, Institution, Optional Link to the person, Optional Email
+\JHPSauthor{Max Müller}{My institution\\Berlin, Germany}{https://myinstitution.com/max}{max@müller.com}
+\JHPSauthor{Priya Singh}{Another affiliation\\Bangladesh, India}{}{} % use empty email here
+
 \title{My Title}
-\author{
-        Max Müller
-        \and Elizabeth Müller
-}
 
 % add the section numbers to the listings/figures/tables
 \counterwithin{lstlisting}{section}
@@ -153,13 +153,16 @@ Please save the bibliography in the file \texttt{bibliography.bib}.
 
 Generally, avoid using links in the bibliography, use a footnote instead.
 
-\addcontentsline{toc}{section}{Bibliography}
+\subsection*{Acknowledgment} %% Remove this section if not needed
+\textit{We thank XX for sponsoring.}
 
+% The bibliography
+\addcontentsline{toc}{section}{Bibliography}
 \bibliography{bibliography.bib}
 
-\reviews
+\reviews % The review section
 
-\subsection*{Reviewer: Name Name, Date: 2020-07-07}
+\subsection*{Reviewer: \href{Optional URL to reviewer page}{Firstname LastName}, Date: 2020-07-07}
 
 \paragraph{Overall summary and proposal for acceptance}
 

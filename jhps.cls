@@ -24,8 +24,13 @@
 \usepackage{chngcntr}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{pgffor}
+\usepackage{marvosym}
+
 %%%% END packages
 
+\newtoks\email
+\newtoks\affiliation
 \newtoks\JHPSissue
 \newtoks\JHPSkeywords
 
@@ -103,6 +108,27 @@
 \setlength\headheight{18pt}
 
 
+
+\makeatletter
+\newcount\authorcount
+\def\storedata#1#2{\edef\tmp{\string#1}\storedataA#2\end\advance\authorcount by-1}
+\def\storedataA#1{\advance\authorcount by1
+   \ifx\end#1
+   \else
+      \expandafter\def\csname data:\tmp:\the\authorcount\endcsname{#1}%
+      \expandafter\storedataA
+   \fi
+}
+\def\getdata[#1]#2{\csname data:\string#2:#1\endcsname}
+\def\basiceval#1{\the\numexpr#1\relax}
+
+\def\JHPSauthor#1#2#3#4{
+  \storedata\Jauthor{{#1}}
+  \storedata\Jauthor{{#2}}
+  \storedata\Jauthor{{#3}}
+  \storedata\Jauthor{{#4}}
+}
+
 \renewcommand*{\maketitle}{
   \pagestyle{plain}
   \thispagestyle{title}
@@ -132,19 +158,37 @@
 
     {\hfill\tiny \hyperref[sec:reviews]{Reviews}} % \framebox[4cm]{
 
-    \vspace*{-0.25cm}
+    \vskip 1.2em%
 
-    \vskip 1.5em%
-    {\large
-      \lineskip .5em%
-      \begin{tabular}[t]{c}%
-        \@author
-      \end{tabular}\par}%
+    % authors
+    \newcommand{\jauthorcount}{\basiceval{\the\authorcount/4}}
+    \foreach\index in {1,...,\jauthorcount}{
+    \def\val{\basiceval{12/\jauthorcount}}
+    \ifnum \val>3
+    \else \def\val{3.8}
+    \fi
+    %\fbox{ % for debuggin
+    \begin{minipage}[t]{\val cm}
+      \centering
+      \href{\getdata[\basiceval{\index*4-1}]\Jauthor}{\textcolor{black}{\large \getdata[\basiceval{\index*4-3}]\Jauthor}} \par
+
+      \smallskip
+
+      \getdata[\basiceval{\index*4-2}]\Jauthor \par
+
+      \def\val{\getdata[\basiceval{\index*4}]\Jauthor}
+      \if \val
+      \else \smallskip \Letter~\textit{\val}
+      \fi
+      \vspace*{1.5em}
+    \end{minipage}
+    }
+    %}
   \end{center}%
 }
 
 \renewenvironment{abstract}{%
-  \vspace*{-0.75cm}
+  \vspace*{-1.1cm}
     \small
     \null\vfil
     \begin{center}%
@@ -235,7 +279,7 @@
 %% The review bottom
 \newcommand{\reviews}{
   \label{LastPage}
-  
+
   \clearpage
   \pagestyle{reviews}
   \section{Reviews}

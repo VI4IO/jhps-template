@@ -2,11 +2,11 @@
 # Metadata for this publication
 - authors:
     - name: Max Musterman
-      email: max@musterman.de
+      email: max@musterman.de   # add emails for all corresponding authors
       url: https://www.max-musterman.de/max
-    - name: Hildegard Müller
-      email: hildgedard@müller.de
-      url: https://www.hildegard-müller.de/hildegard
+    - name: Priya Singh
+      email: bla@bla
+      url: https://blabla
 - funding:
     - agency: DFG/NERSC
       contract: 735735K
