@@ -40,12 +40,14 @@ Whenever one of the buttons is clicked, the remote repo is pulled and merged wit
 
   - [main.tex](main.tex): this file shall contain all text of the full paper.
   - [bibliography.bib](bibliography.bib): this file contains the BibTex of the paper.
-  - [meta.yaml](meta.yaml): metadata for this publication. 
+  - [meta.yaml](meta.yaml): metadata for this publication.
   - [assets](assets): include all figures and material referenced by LaTeX.
   - [workflow](workflow): a directory containing the workflow for the reproducible workflow.
   - main.pdf: after you run LaTeX, it shall contain the created PDF, do not check this file into the repository!
 
 ## Get started
 
-To get started clone this repository.
-To test the correct behavior build the LaTeX using __pdflatex main.tex__ or __latexmk -pdf main.tex__.
+To get started:
+  1. clone this repository.
+  2. To test the correct behavior build the LaTeX file, e.g., using __pdflatex main.tex__ or __latexmk -pdf main.tex__.
+  3. Modify the author information in meta.yaml, check the correctness of the yaml file (e.g. using yamllint)
