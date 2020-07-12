@@ -32,6 +32,7 @@ def clean(line):
   if m:
     return clean(m.group(1)) + m.group(2) + clean(m.group(3))
   l = ''.join([c if ord(c) >= 32 or c == ' ' or c == '\n' or c == '\t' else '' for c in line])
+  l = re.sub("[.] \\\\\\\\ *$", ".\\\\\\\\", l, flags=re.M)
   return re.sub('([^0-9])[.] +([^.])','\g<1>.\n\g<2>', l)
 
 f = open("tmp-replace", "w")
