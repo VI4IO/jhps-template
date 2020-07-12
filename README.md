@@ -43,11 +43,16 @@ Whenever one of the buttons is clicked, the remote repo is pulled and merged wit
   - [meta.yaml](meta.yaml): metadata for this publication.
   - [assets](assets): include all figures and material referenced by LaTeX.
   - [workflow](workflow): a directory containing the workflow for the reproducible workflow.
+  - [line-split.py](line-split.py): this script fixes the line-breaks for LaTeX to ease merging, it is automatically invoked at the server.
   - main.pdf: after you run LaTeX, it shall contain the created PDF, do not check this file into the repository!
 
-## Get started
+## Preparing a JHPS submission
 
-To get started:
+This step by step guide helps to prepare your paper for a submission:
+
   1. clone this repository.
   2. To test the correct behavior build the LaTeX file, e.g., using __pdflatex main.tex__ or __latexmk -pdf main.tex__.
   3. Modify the author information in meta.yaml, check the correctness of the yaml file (e.g. using yamllint)
+  4. Provide your main.tex, bibliography.bib
+  5. Before the initial submission, please format the paper calling $ ./line-split.py main.tex
+  6. Notify the board about the paper, see [for authors](https://jhps.vi4io.org/authors/)
