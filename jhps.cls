@@ -10,6 +10,7 @@
 \usepackage{geometry}
 \newgeometry{left=3cm,bottom=2.5cm,right=2.5cm,top=2.5cm}
 
+\usepackage[breakwords]{truncate}
 \usepackage[cmex10]{amsmath}
 \usepackage{titling}
 \usepackage{hyperref}
@@ -238,7 +239,7 @@
   \fancyRulers
   \fancyhead[L]{}
   \fancyhead[R]{\@date} %\leftmark
-  \fancyhead[C]{\thetitle}
+  \fancyhead[L]{\truncate{12cm}{\thetitle}}
   \fancyfoot[C]{}
   \fancyfoot[R]{\thepage/\pageref*{LastPage}}
   \fancyfoot[L]{\includegraphics[height=0.8em]{jhps-logo} This article \ifnum\the\JHPSissue>0 appeared in the \href{https://jhps.vi4io.org/issue/\the\JHPSissue}{Journal of High-Performance Storage, \the\JHPSissue}\else is in the incubator of the \href{https://jhps.vi4io.org/incubator/}{Journal of High-Performance Storage}\fi }
@@ -258,7 +259,7 @@
   \fancyFootRulers
   \fancyhead[L]{}
   \fancyhead[R]{\@date} %\leftmark
-  \fancyhead[C]{\thetitle}
+  \fancyhead[L]{\truncate{12cm}{\thetitle}}
   \fancyfoot[C]{Reviews}
   \fancyfoot[R]{\thepage}
   \fancyfoot[L]{\includegraphics[height=0.8em]{jhps-logo}}
