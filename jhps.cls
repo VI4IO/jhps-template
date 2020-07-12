@@ -20,7 +20,7 @@
 \usepackage{tikz}
 \usepackage{floatrow}
 \usepackage{colortbl}
-\usepackage{listings}
+\usepackage{listings}%utf8
 \usepackage{chngcntr}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -65,8 +65,8 @@
   captionpos=b,                    % sets the caption-position to bottom
   %commentstyle=\color{mygreen},    % comment style
   %deletekeywords={...},            % if you want to delete keywords from the given language
-  %escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
-  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=false,              % if true, lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
   frame={bt},	                     % adds a frame around the code frame={bt},
   keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
   keywordstyle=\bf\ttfamily,       % keyword style
@@ -83,15 +83,23 @@
   stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
   %stringstyle=\color{mymauve},     % string literal style
   tabsize=2,	                   % sets default tabsize to 2 spaces
-  title=\lstname%,
+  title=\lstname,%,
   %backgroundcolor=\color{JHPSGray}
+  keywordstyle=\color{Green2}\ttfamily,
+  stringstyle=\color{JHPSRed}\ttfamily,
+  commentstyle=\color{Blue2}\ttfamily,
+  morecomment=[l][\color{magenta}]{\#}
 }
 
-\lstset{language=C++,
-    keywordstyle=\color{Green2}\ttfamily,
-    stringstyle=\color{JHPSRed}\ttfamily,
-    commentstyle=\color{Blue2}\ttfamily,
-    morecomment=[l][\color{magenta}]{\#}
+\lstdefinelanguage{bibtex}{
+    keywords={@article,@misc},
+    sensitive=false,
+    comment=[l]{\%}
+}
+
+\lstdefinelanguage{none}{
+    morekeywords={},
+    sensitive=false
 }
 
 

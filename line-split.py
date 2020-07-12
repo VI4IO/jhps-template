@@ -19,7 +19,7 @@ def clean(line):
       count = count + 1
     else:
       if count % 2 == 1:
-        return clean(line[0:p - count]) + ("%" * (count -1)) + " %" + line[p:] #.strip(" ")
+        return clean(line[0:p - count]) + ("%" * (count - 1)) + "%" + line[p:]
       count = 0
 
   if line.find("\\begin{lstlisting}") != -1 or line.find("\\begin{verbatim}") != -1:
@@ -40,6 +40,8 @@ lines = []
 enableReplace = True
 for l in data:
   l = clean(l)
+  if l[-1] != '\n':
+    l = l + "\n"
   lines.append(l)
 
 l = "".join(lines)
