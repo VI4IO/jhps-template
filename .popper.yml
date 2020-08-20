@@ -1,0 +1,9 @@
+steps:
+
+- id: split-lines
+  uses: docker://python:3.8-alpine3.12
+  runs: [./line-split.py, main.tex]
+
+- id: build-paper
+  uses: docker://ivotron/texlive:2019.20200218
+  runs: [pdflatex, main.tex]
