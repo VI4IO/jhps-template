@@ -242,7 +242,7 @@
   \fancyhead[L]{\truncate{12cm}{\thetitle}}
   \fancyfoot[C]{}
   \fancyfoot[R]{\thepage/\pageref*{LastPage}}
-  \fancyfoot[L]{\includegraphics[height=0.8em]{jhps-logo} This article \ifnum\the\JHPSissue>0 appeared in the \href{https://jhps.vi4io.org/issue/\the\JHPSissue}{Journal of High-Performance Storage, \the\JHPSissue}\else is in the incubator of the \href{https://jhps.vi4io.org/incubator/}{Journal of High-Performance Storage}\fi }
+  \fancyfoot[L]{\includegraphics[height=0.8em]{jhps-logo} This article \ifnum\the\JHPSissue>0 appeared in the \href{https://jhps.vi4io.org/issue1/\the\JHPSissue}{Journal of High-Performance Storage, \the\JHPSissue}\else is in the incubator of the \href{https://jhps.vi4io.org/incubator/}{Journal of High-Performance Storage}\fi }
 }
 
 \fancypagestyle{title}{
@@ -300,6 +300,11 @@
   Fine-grained comments and suggestions should be added directly to the manuscript in the Google Doc on the top using “Suggesting” mode (top right, underneath the blue share button).
   \fi
 }
+
+% add the section numbers to the listings/figures/tables
+\counterwithin{lstlisting}{section}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
 
 
 \endinput
