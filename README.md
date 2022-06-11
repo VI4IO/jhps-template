@@ -51,8 +51,24 @@ Whenever one of the buttons is clicked, the remote repo is pulled and merged wit
 This step by step guide helps to prepare your paper for a submission:
 
   1. clone this repository.
-  2. To test the correct behavior build the LaTeX file, e.g., using __pdflatex main.tex__ or __latexmk -pdf main.tex__.
+  2. To test the correct behavior build the LaTeX file, e.g., using __pdflatex main.tex__ or __latexmk -pdf main.tex__. Alternatively, using Docker and Popper:
+
+     ```bash
+     cd path/to/repo
+
+     popper run build-paper
+     ```
+
+     For more information on Popper visit the [official documentation](https://github.com/getpopper/popper).
+
   3. Modify the author information in meta.yaml, check the correctness of the yaml file (e.g. using yamllint)
   4. Provide your main.tex, bibliography.bib
-  5. Before the initial submission, please format the paper calling $ ./line-split.py main.tex
+  5. Before the initial submission, please format the paper calling $ ./line-split.py main.tex. Using Popper:
+
+     ```bash
+     cd path/to/repo
+
+     popper run split-lines
+     ```
+
   6. Notify the board about the paper, see [for authors](https://jhps.vi4io.org/authors/)
