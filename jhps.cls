@@ -302,7 +302,6 @@
 }
 
 % add the section numbers to the listings/figures/tables
-\counterwithin{lstlisting}{section}
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
 
